@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Instalili Receipt Scanner</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="card">
+        <h1>Receipt Scanner</h1>
+        <p class="subtitle">Capture or upload a receipt image.</p>
+
+        <div class="actions">
+          <label class="btn btn-primary">
+            Upload Image
+            <input id="fileInput" type="file" accept="image/*" hidden />
+          </label>
+          <button id="startCameraBtn" class="btn btn-secondary" type="button">Use Camera</button>
+          <button id="captureBtn" class="btn btn-secondary hidden" type="button">Capture</button>
+          <button id="stopCameraBtn" class="btn btn-ghost hidden" type="button">Stop Camera</button>
+          <button id="resetBtn" class="btn btn-ghost" type="button">Reset</button>
+        </div>
+        <div class="ai-config">
+          <label for="aiModelInput" class="ai-toggle">Local AI model</label>
+          <input id="aiModelInput" class="ai-model-input" type="text" value="gemma3:4b" />
+          <button id="exportJsonlBtn" class="btn btn-secondary" type="button">Export Fine-tune JSONL</button>
+        </div>
+
+        <p id="status" class="status">Waiting for image...</p>
+
+        <div class="preview-grid">
+          <div class="preview-box">
+            <h2>Preview</h2>
+            <img id="previewImage" alt="Receipt preview" class="preview-image hidden" />
+            <video id="cameraFeed" class="camera-feed hidden" autoplay playsinline></video>
+          </div>
+          <div class="preview-box">
+            <h2>Extracted Text</h2>
+            <pre id="ocrOutput" class="ocr-output">No OCR output yet.</pre>
+          </div>
+          <div class="preview-box full-width">
+            <h2>Parsed Items And Amounts</h2>
+            <p id="receiptDateMeta" class="meta">Receipt date: Not available yet.</p>
+            <div class="table-wrap">
+              <table class="items-table">
+                <thead>
+                  <tr>
+                    <th>Item</th>
+                    <th>Amount</th>
+                    <th>Subcategory</th>
+                    <th>Category</th>
+                  </tr>
+                </thead>
+                <tbody id="itemsBody">
+                  <tr>
+                    <td colspan="4">No parsed items yet.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="preview-box full-width">
+            <h2>Live Total Spend Graph</h2>
+            <div id="graphRows" class="graph-rows"></div>
+          </div>
+          <div class="preview-box full-width">
+            <h2>Ask Spending</h2>
+            <div class="query-row">
+              <input
+                id="queryInput"
+                class="query-input"
+                type="text"
+                placeholder="How much did I spend on groceries this month?"
+              />
+              <button id="queryBtn" class="btn btn-primary" type="button">Ask</button>
+            </div>
+            <p id="queryAnswer" class="query-answer">Ask a question about your spending.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+    <script type="module" src="./src/main.js"></script>
+  </body>
+  </html>

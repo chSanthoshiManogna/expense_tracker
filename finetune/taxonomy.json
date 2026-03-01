@@ -1,0 +1,53 @@
+{
+  "categories": {
+    "Groceries": [
+      "Vegetables",
+      "Fruits",
+      "Dairy",
+      "Bakery",
+      "Raw Materials",
+      "Baby Care",
+      "Beverages",
+      "General Grocery"
+    ],
+    "Dining": [
+      "Restaurant Meals",
+      "Coffee"
+    ],
+    "Gas & Fuel": [
+      "Fuel"
+    ],
+    "Health": [
+      "Medical Bills",
+      "Pharmacy",
+      "Insurance",
+      "Diagnostics",
+      "General Health"
+    ],
+    "Home": [
+      "Hardware",
+      "Tools",
+      "Electrical",
+      "Plumbing",
+      "Paint",
+      "Garden",
+      "Household",
+      "General Home"
+    ],
+    "Shopping": [
+      "Clothing",
+      "Baby Apparel",
+      "Footwear",
+      "Accessories",
+      "General Shopping"
+    ],
+    "Other": [
+      "Electronics",
+      "Office",
+      "Personal Care",
+      "Household Other",
+      "Misc",
+      "General"
+    ]
+  }
+}
